@@ -3,6 +3,8 @@
 ## This application uses the following technologies:
 * nodeJs
 * yargs
+* mocha
+* chai
 
 Using [Open Weather API](https://openweathermap.org/)
 
