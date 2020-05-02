@@ -7,7 +7,9 @@ let getArgumentInfo = async (address) => {
   let addressArray;
   let arrayCount = 1;
 
-  if (String(address).includes(",")) {
+  const hasComma = String(address).includes(",");
+
+  if (hasComma) {
     addressArray = address.split(",");
   } else {
     addressArray = [address];
@@ -15,7 +17,7 @@ let getArgumentInfo = async (address) => {
 
   try {
 
-    if (address == true) {
+    if (address === true) {
       throw new Error(
         `enter a valid address option. e.g: yarn start -a "10005, tokyo, São Paulo, lagos, Pluto"`
       );
