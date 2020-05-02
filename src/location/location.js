@@ -7,13 +7,13 @@ const getPlaceLatLng = async (dir) => {
     baseURL: `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${encodedUlr}&inputtype=textquery&fields=name,geometry&key=AIzaSyBJWJWPcWWOMxvyWw0u1FsQrSjUIMahRpc`,
   });
 
-  const resp = await instance.get();
+  const response = await instance.get();
 
-  if (resp.data.candidates.length === 0) {
+  if (response.data.candidates.length === 0) {
     throw new Error(`There are not results for: ${dir}`);
   }
 
-  const data = resp.data.candidates[0];
+  const data = response.data.candidates[0];
   const address = data.name;
   const lat = data.geometry.location.lat;
   const lng = data.geometry.location.lng;

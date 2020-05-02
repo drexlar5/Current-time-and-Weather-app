@@ -1,5 +1,6 @@
 const place = require("./src/location/location");
 const weather = require("./src/weather/weather");
+const timezone = require("./src/time/time");
 const expect = require("chai").expect;
 
 describe("invisible technologies assessment test cases", () => {
@@ -22,13 +23,24 @@ describe("invisible technologies assessment test cases", () => {
       });
     });
   });
-  describe("Coordinate test", () => {
+  describe("Weather test", () => {
     context("get weather for a given set of coordinate", () => {
       it("should return an a number ", async () => {
-        expect(await weather.getWeather(40.7064363, -74.0094562)).to.be.an(
+        expect(await weather.getWeather(40.7064363, -74.0094562)).to.be.a(
           "number"
         );
       });
     });
+  });
+  describe("Current time test", () => {
+    context("get current time for a given set of coordinate", () => {
+      it("should return a string ", async () => {
+        expect(await timezone.getTime(40.7064363, -74.0094562)).to.be.a("string")
+      });
+      it("should return match format hh:mm:ss", async () => {
+        expect(await timezone.getTime(40.7064363, -74.0094562)).to.match(new RegExp("^([0-9]{2})\:([0-9]{2})\:([0-9]{2})$"))
+      });
+    });
+    
   });
 });
