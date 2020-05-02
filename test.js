@@ -35,12 +35,16 @@ describe("invisible technologies assessment test cases", () => {
   describe("Current time test", () => {
     context("get current time for a given set of coordinate", () => {
       it("should return a string ", async () => {
-        expect(await timezone.getTime(40.7064363, -74.0094562)).to.be.a("string")
+        expect(await timezone.getTime(40.7064363, -74.0094562)).to.be.a(
+          "string"
+        );
       });
       it("should return match format hh:mm:ss", async () => {
-        expect(await timezone.getTime(40.7064363, -74.0094562)).to.match(new RegExp("^([0-9]{2})\:([0-9]{2})\:([0-9]{2})$"))
+        expect(await timezone.getTime(40.7064363, -74.0094562)).to.match(
+          new RegExp("^([0-9]{2}):([0-9]{2}):([0-9]{2})$")
+        );
       });
     });
-    
   });
+  
 });
